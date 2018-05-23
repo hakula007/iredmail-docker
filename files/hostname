@@ -1,0 +1,13 @@
+#!/bin/bash
+case "$*" in
+'-a'|'-A'|'-s')
+  echo "mx";;
+'-d')
+  echo "qiku.info";;
+'-f'|'--fqdn'|'--long'|'-v')
+  echo "mx.qiku.info";;
+'-i')
+  echo "127.0.0.1";;
+*)
+  /bin/hostname_ $* | sed 's/'"$(/bin/hostname_)"'/mx.qiku.info/g';;
+esac
